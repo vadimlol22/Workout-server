@@ -1,0 +1,27 @@
+{
+	"name": "bff",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon ./server.js",
+		"start": "node ./server.js"
+	},
+	"keywords": [
+		"workout",
+		"app"
+	],
+	"author": "Vadzim",
+	"license": "ISC",
+	"devDependencies": {
+		"add": "^2.0.6",
+		"colors": "^1.4.0",
+		"prettier": "^3.1.0"
+	},
+	"dependencies": {
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"morgan": "^1.10.0"
+	}
+}
