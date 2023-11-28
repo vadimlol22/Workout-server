@@ -1,15 +1,21 @@
 import 'colors'
-import express from 'express'
+import cors from 'cors'
 import dotenv from 'dotenv'
+import express from 'express'
 import morgan from 'morgan'
 import path from 'path'
 
-import authRoutes from './app/auth/auth.routes.js'
-import userRoutes from './app/user/user.routes.js'
-import exerciseRoutes from './app/exercise/exercise.routes.js'
-import workoutRoutes from './app/workout/workout.routes.js'
-import { prisma } from './app/prisma.js'
 import { errorHandler, notFound } from './app/middleware/error.middleware.js'
+
+import authRoutes from './app/auth/auth.routes.js'
+import exerciseRoutes from './app/exercise/exercise.routes.js'
+import { prisma } from './app/prisma.js'
+import userRoutes from './app/user/user.routes.js'
+import workoutRoutes from './app/workout/workout.routes.js'
+
+// [] - Add cors (app.use(cors()) and $ npm install cors)
+// getUserProfile
+// get Workout log and get exercise log exercise
 
 dotenv.config()
 
@@ -18,6 +24,7 @@ const app = express()
 async function main() {
 	if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
+	app.use(cors())
 	app.use(express.json())
 
 	const __dirname = path.resolve()
